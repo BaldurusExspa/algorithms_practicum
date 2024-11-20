@@ -8,5 +8,5 @@
 ### To start the project, run the following command:
 Recursive method:
 ```
-node .\fib_recursive.js
+node .\index.js
 ```
