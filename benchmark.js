@@ -1,9 +1,9 @@
 export const benchmark = (func) => {
-  var start = performance.now();
+  const b = {};
+  const start = performance.now();
   func;
-  var end = performance.now();
-  var time = end - start;
-  return time;
+  const end = performance.now();
+  b.output = func;
+  b.hrtime = end - start;
+  return b;
 };
-
-// export default benchmark;
