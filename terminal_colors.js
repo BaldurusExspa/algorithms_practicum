@@ -7,8 +7,11 @@ export const colors = () => {
     let resetFontColor = '\x1b[0m';
 
     // Output parametrs for coloring and styling text in terminal
+    // Red color
     color.red = fontColorRed;
+    // Green color
     color.green = fontColorGreen;
+    // Reset color and styles
     color.reset = resetFontColor;
     return color;
 }
