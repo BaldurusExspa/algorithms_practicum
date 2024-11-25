@@ -4,6 +4,7 @@
     "start": "node ./index.js"
   },
   "dependencies": {
+    "benchmark": "^2.1.4",
     "inquirer": "^12.1.0"
   }
 }

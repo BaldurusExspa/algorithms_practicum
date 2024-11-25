@@ -1,6 +1,8 @@
 import inquirer from "inquirer";
+import { colors } from "./terminal_colors.js";
 import { benchmark } from "./benchmark.js";
 
+// Array of algorithms objects
 const algorithms_list = [
   {
     name: "Naive recursive algorithm",
@@ -15,9 +17,10 @@ const algorithms_list = [
 ];
 
 function findAlgByVal(algVal) {
-  return algorithms_list.find((x) => x.value === algVal);
+  return algorithms_list.find((item) => item.value === algVal);
 };
 
+// Library inquirer for create terminal interfaces
 inquirer
   .prompt([
     {
@@ -34,10 +37,13 @@ inquirer
     },
   ])
   .then((answers) => {
+    // Find algorithm for terminal answer
     let alg = findAlgByVal(answers.algorithm);
 
+    // Imopting needed module
     import(alg.module).then(module => {
       let result = benchmark(module.default(answers.Number));
-      console.log(`The resul number is ${result.output}, found in ${result.hrtime} seconds.`);
+      let color = colors();
+      console.log(`The resul number is ${color.red}${result.output}${color.reset}, found in ${color.red}${result.bench}${color.reset} seconds.`);
     });
   });
