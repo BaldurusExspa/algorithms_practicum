@@ -8,6 +8,10 @@
 > [!WARNING]
 > When installing other versions of these dependencies, I do not guarantee stable operation of the application
 
+### To install dependencies, run the following command:
+```sh
+npm install
+```
 ### To start the project, run the following command:
 ```sh
 npm start
