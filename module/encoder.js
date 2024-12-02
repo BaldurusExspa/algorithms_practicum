@@ -58,7 +58,7 @@ const encoderHuffman = (wordForCoding) => {
   // Genetal function, who take all wtidet
   const sliceWordOnSymbols = (str) => {
     // Split string to array
-    const splitString = str.split(""); // ['E', 'r', 'r', 'a', 'r', 'e' ' ', 'h', 'u', 'm', 'a', 'n', 'u', 'm', 'e', 's', 't', '.']
+    const splitString = str.split("");
     // Count times every symbol met in array
     const codedSymbols = splitString.reduce((acc, element) => {
       const count = acc[element] || 0;
