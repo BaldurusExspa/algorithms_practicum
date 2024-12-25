@@ -1,18 +1,27 @@
 import inquirer from "inquirer";
-import encoderHuffman from "./module/encoder.js";
+import startApp from "./lib/startApp.js";
 import { colors } from "./terminal_colors.js";
 
+// List of function modules
 const actionList = [
   {
-    name: "Encoder",
-    value: "encoder",
+    name: "Simple Encoder",
+    value: "sim_encoder",
+    module: "./module/encoder.js",
   },
+  {
+    name: "Optimized Encoder",
+    value: "opt_encoder",
+    module: "./module/optimizedEncoder.js",
+  }
 ];
 
+// Function for find module on answer value
 const findActionByValue = (actVal) => {
   return actionList.find((item) => item.value == actVal);
 };
 
+// Library inquirer for create terminal interfaces
 inquirer
   .prompt([
     {
@@ -29,15 +38,20 @@ inquirer
     },
   ])
   .then((answers) => {
-    let action = findActionByValue(answers.actionChoice);
-    let color = colors();
+    // Find action for terminal answer
+    const action = findActionByValue(answers.actionChoice);
+    const color = colors();
 
-    if (action.value === "encoder") {
-      console.log(" ");
+    // Imported needed module
+    import(action.module).then(module => {
+      // Interaction with selected module
+      const start = startApp(module.default, answers.user_input)
+
+      // Result output
       console.log(
         `${color.white}As a result of your choice, this text came out: ${
           color.green
-        }${encoderHuffman(answers.user_input)}${color.reset}`
-      );
-    }
+        }${start.output}${color.reset}`)
+        console.log(" ");
+    })
   });

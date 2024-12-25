@@ -1,4 +1,6 @@
 const encoderHuffman = (wordForCoding) => {
+  // Output parameters
+  // const output = {};
   // Sort result object of symbols
   const sortObject = (obj) =>
     Object.entries(obj)
@@ -38,7 +40,7 @@ const encoderHuffman = (wordForCoding) => {
     let temp = "1";
     let sliceWord = str.slice(1);
 
-    codedBinaryObj[str[0]] = "0";
+    codedBinaryObj[str[0]] = "000";
 
     const encoding = (word) => {
       if (word.length === 1) {
@@ -74,6 +76,9 @@ const encoderHuffman = (wordForCoding) => {
     const alphabet = codingSymbolsBinary(knot);
 
     const binaryCode = codingAlphabet(splitString, alphabet);
+
+    console.log(" ");
+    console.log(alphabet);
 
     return binaryCode;
   };
