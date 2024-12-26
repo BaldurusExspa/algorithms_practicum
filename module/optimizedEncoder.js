@@ -40,15 +40,16 @@ const encoderHuffmanOptimized = (wordForCoding) => {
     // First knot
     codedBinaryObj[str[0]] = "0";
 
-    // Create tree for knot
+   // Create tree for knot
     const encoding = (word, branch) => {
-      if (word.length === 1) {
+      if
+   (word.length === 1) {
         codedBinaryObj[word] = branch;
       } else {
         const lowerHalfWord = Math.floor(word.length / 2);
         const firstPartWord = word.slice(0, lowerHalfWord);
         const secondPartWord = word.slice(lowerHalfWord);
-  
+
         encoding(firstPartWord, branch + "0");
         encoding(secondPartWord, branch + "1");
       }

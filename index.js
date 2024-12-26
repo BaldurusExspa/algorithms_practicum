@@ -13,7 +13,12 @@ const actionList = [
     name: "Optimized Encoder",
     value: "opt_encoder",
     module: "./module/optimizedEncoder.js",
-  }
+  },
+  // {
+  //   name: "Decoder",
+  //   value: "decoder",
+  //   module: "./module/decoder.js",
+  // },
 ];
 
 // Function for find module on answer value
@@ -40,6 +45,7 @@ inquirer
   .then((answers) => {
     // Find action for terminal answer
     const action = findActionByValue(answers.actionChoice);
+    // Terminal colors
     const color = colors();
 
     // Imported needed module

@@ -1,7 +1,8 @@
 {
   "type": "module",
   "scripts": {
-    "start": "node ./index.js"
+    "start": "node ./index.js",
+    "decode": "node ./module/decoder.js"
   },
   "dependencies": {
     "inquirer": "^12.1.0"
