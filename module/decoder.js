@@ -1,5 +1,4 @@
-// import inquirer from "inquirer";
-// import { colors } from "../terminal_colors.js";
+import { colors } from "../terminal_colors.js";
 
 const decoder = (word, alphabet) => {
   let resultWord = "";
@@ -19,52 +18,28 @@ const decoder = (word, alphabet) => {
     return acc;
   }, "");
 
-  console.log(resultWord);
+  const color = colors();
+
+  console.log(`${color.green}${resultWord}${color.reset}`);
   console.log(" ");
 
   return resultWord;
 };
 
 decoder(
-  "101011101110111101110111110101101000100111110101111000100101111111001101011011",
+  "100011110001001101000111111011001010011000010110011010111110",
   {
-    " ": "0",
-    u: "1000",
-    m: "1001",
-    E: "1010",
-    h: "10110",
-    n: "10111",
-    s: "1100",
-    t: "11010",
-    ".": "11011",
-    r: "1110",
-    a: "11110",
-    e: "11111",
+    " ": "1011",
+    ".": "1110",
+    D: "1000",
+    c: "000",
+    d: "001",
+    e: "1001",
+    i: "010",
+    m: "1100",
+    n: "1010",
+    o: "1111",
+    s: "011",
+    u: "1101",
   }
 );
-
-// inquirer
-//   .prompt([
-//     {
-//       type: "input",
-//       name: "word_input",
-//       message: "What decoding word you need?",
-//     },
-//     {
-//       type: "input",
-//       name: "alphabet_input",
-//       message: "What decoding alphabet you use?",
-//     },
-//   ])
-//   .then((answers) => {
-//     // Terminal colors
-//     const color = colors();
-
-//     // Result output
-//     console.log(
-//       `${color.white}As result of your data input, this phrase came out: ${
-//         color.green
-//       }${decoder(answers.word_input, answers.alphabet_input)}${color.reset}`
-//     );
-//     console.log("");
-//   });
